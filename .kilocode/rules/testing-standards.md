@@ -2,11 +2,12 @@
 
 ## Test-Driven Development Approach
 
-- Write tests before implementing features
+- Always write tests before implementing features
 - Test user interactions, not implementation details
 - Use React Testing Library for component testing
 - Use Jest for utility function testing
 - Achieve comprehensive test coverage
+- Never ever mark a task as completed if all test is not passing
 
 ## Testing Framework Requirements
 
