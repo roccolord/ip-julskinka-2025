@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { Box, Container, Grid, Link, SvgIcon, Typography } from '@mui/material';
+import { Box, Container, Grid, SvgIcon, Typography } from '@mui/material';
 import Search from './components/Search/Search';
 import WeeklyForecast from './components/WeeklyForecast/WeeklyForecast';
 import TodayWeather from './components/TodayWeather/TodayWeather';
-import { fetchWeatherData } from './api/OpenWeatherService';
+import { fetchWeatherData } from './api/OpenMeteoService';
 import { transformDateFormat } from './utilities/DatetimeUtils';
 import UTCDatetime from './components/Reusable/UTCDatetime';
 import LoadingBox from './components/Reusable/LoadingBox';
 import { ReactComponent as SplashIcon } from './assets/splash-icon.svg';
 import { ReactComponent as LogoComponent } from './assets/logo.svg';
 import ErrorBox from './components/Reusable/ErrorBox';
-import { ALL_DESCRIPTIONS } from './utilities/DateConstants';
 import {
   getTodayForecastWeather,
   getWeekForecastWeather,
@@ -42,8 +41,7 @@ function App() {
       );
 
       const all_week_forecasts_list = getWeekForecastWeather(
-        weekForecastResponse,
-        ALL_DESCRIPTIONS
+        weekForecastResponse
       );
 
       setTodayForecast([...all_today_forecasts_list]);
@@ -53,6 +51,7 @@ function App() {
         list: all_week_forecasts_list,
       });
     } catch (error) {
+      console.error('Weather fetch error:', error);
       setError(true);
     }
 
