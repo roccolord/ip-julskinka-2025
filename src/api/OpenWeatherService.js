@@ -1,12 +1,21 @@
 const GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo';
 
 const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5';
-const WEATHER_API_KEY = 'Your API KEY';
+const WEATHER_API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
+
+// Validate that required environment variables are present
+if (!WEATHER_API_KEY) {
+  throw new Error('REACT_APP_OPENWEATHER_API_KEY environment variable is required');
+}
+
+if (!process.env.REACT_APP_RAPIDAPI_KEY) {
+  throw new Error('REACT_APP_RAPIDAPI_KEY environment variable is required');
+}
 
 const GEO_API_OPTIONS = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '4f0dcce84bmshac9e329bd55fd14p17ec6fjsnff18c2e61917',
+    'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
     'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com',
   },
 };
