@@ -8,7 +8,7 @@ import { transformDateFormat } from './utilities/DatetimeUtils';
 import UTCDatetime from './components/Reusable/UTCDatetime';
 import LoadingBox from './components/Reusable/LoadingBox';
 import { ReactComponent as SplashIcon } from './assets/splash-icon.svg';
-import Logo from './assets/logo.png';
+import { ReactComponent as LogoComponent } from './assets/logo.svg';
 import ErrorBox from './components/Reusable/ErrorBox';
 import { ALL_DESCRIPTIONS } from './utilities/DateConstants';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -180,14 +180,14 @@ function App() {
               marginBottom: '1rem',
             }}
           >
-            <Box
-              component="img"
+            <SvgIcon
+              component={LogoComponent}
+              inheritViewBox
               sx={{
                 height: { xs: '16px', sm: '22px', md: '26px' },
                 width: 'auto',
+                color: 'white'
               }}
-              alt="logo"
-              src={Logo}
             />
 
             <UTCDatetime />
