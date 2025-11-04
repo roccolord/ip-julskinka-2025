@@ -18,14 +18,14 @@ The app is developed using React.js and material-UI.
 npm install
 ```
 
-1. Set up environment variables:
+2. Set up environment variables:
 
 ```bash
 # Copy the example environment file
 cp .env.example .env
 ```
 
-1. Edit the `.env` file and replace the placeholder values with your actual API keys:
+3. Edit the `.env` file and replace the placeholder values with your actual API keys:
 
 ```env
 # OpenWeatherMap API Key
@@ -35,7 +35,7 @@ REACT_APP_OPENWEATHER_API_KEY=your_openweather_api_key_here
 REACT_APP_RAPIDAPI_KEY=your_rapidapi_key_here
 ```
 
-1. Start the development server:
+4. Start the development server:
 
 ```bash
 npm start
