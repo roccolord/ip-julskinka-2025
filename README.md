@@ -3,26 +3,12 @@
 <br/>
 <br/>
 
-With [The Weather Forecasting](https://the-weather-forecasting.netlify.app) user can search locations by city name and observe the weather for the next 5-6 days and 3 hour interval.
+With the Addnode Weather Forecasting app user can search locations by city name and observe the weather for the next 5-6 days and 3 hour interval.
 <br />
 The app is developed using React.js and material-UI.
 
 <br/>
 
-## 💻 Live Demo:
-
-https://the-weather-forecasting.netlify.app
-
-<br/>
-
-## ✨ Getting Started
-
-- Make sure you already have `Node.js` and `npm` installed in your system.
-- You need API keys for the following services:
-  - **OpenWeatherMap API**: Get your free API key from [OpenWeatherMap](https://openweathermap.org/) by creating an account and [grabbing your key](https://home.openweathermap.org/api_keys).
-  - **RapidAPI GeoDB**: Get your free API key from [RapidAPI GeoDB Cities](https://rapidapi.com/wirefreethought/api/geodb-cities) for location search functionality.
-
-<br/>
 
 ## ⚡ Install & Setup
 
@@ -74,15 +60,3 @@ npm start
 Check `packages.json` for details
 
 <br/>
-
-## 📄 Todos
-
-- [ ] Styled-components
-- [ ] Convert the entire project to TypeScript
-- [ ] Unit Testing
-- [ ] On launch, find user location weather by utilizing GeolocationAPI/GEOCODING
-- [ ] Celcius/Fahrenheit conversion
-- [ ] Dark/Light Mode
-
-<br/>
-Thank You ☺
