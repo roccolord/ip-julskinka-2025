@@ -12,27 +12,20 @@ The app is developed using React.js and material-UI.
 
 ## ⚡ Install & Setup
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/Amin-Awinti/the-weather-forecasting.git
-cd the-weather-forecasting
-```
-
-2. Install the packages:
+1. Install the packages:
 
 ```bash
 npm install
 ```
 
-3. Set up environment variables:
+1. Set up environment variables:
 
 ```bash
 # Copy the example environment file
 cp .env.example .env
 ```
 
-4. Edit the `.env` file and replace the placeholder values with your actual API keys:
+1. Edit the `.env` file and replace the placeholder values with your actual API keys:
 
 ```env
 # OpenWeatherMap API Key
@@ -42,7 +35,7 @@ REACT_APP_OPENWEATHER_API_KEY=your_openweather_api_key_here
 REACT_APP_RAPIDAPI_KEY=your_rapidapi_key_here
 ```
 
-5. Start the development server:
+1. Start the development server:
 
 ```bash
 npm start
