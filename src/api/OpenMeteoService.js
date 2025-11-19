@@ -3,11 +3,43 @@ import {
   determineNightTime
 } from '../utilities/OpenMeteoWeatherCodes';
 
-// Open-Meteo API endpoints - no API keys required!
-const GEOCODING_API_URL = 'https://geocoding-api.open-meteo.com/v1';
-const WEATHER_API_URL = 'https://api.open-meteo.com/v1';
+// Environment-based API configuration
+const API_KEY = process.env.REACT_APP_OPEN_METEO_API_KEY;
+const USE_COMMERCIAL_API = !!(API_KEY && API_KEY.trim().length > 0);
 
-// No API key validation needed - major benefit of Open-Meteo!
+// API endpoints - automatically select based on API key presence
+const GEOCODING_API_URL = USE_COMMERCIAL_API
+  ? 'https://customer-geocoding-api.open-meteo.com/v1'
+  : 'https://geocoding-api.open-meteo.com/v1';
+
+const WEATHER_API_URL = USE_COMMERCIAL_API
+  ? 'https://customer-api.open-meteo.com/v1'
+  : 'https://api.open-meteo.com/v1';
+
+// Log API mode on startup
+console.log(`🌤️  Open-Meteo API Mode: ${USE_COMMERCIAL_API ? '✨ COMMERCIAL' : '🆓 FREE'}`);
+if (USE_COMMERCIAL_API) {
+  console.log('📡 Using customer API endpoints with API key');
+} else {
+  console.log('📡 Using free API endpoints (no API key configured)');
+}
+
+/**
+ * Construct API URL with optional API key injection
+ * @param {string} baseUrl - Base API endpoint URL
+ * @param {URLSearchParams} params - Query parameters
+ * @returns {string} Complete URL with API key if applicable
+ */
+function constructApiUrl(baseUrl, params) {
+  const queryString = params.toString();
+  
+  if (USE_COMMERCIAL_API && API_KEY) {
+    // Append API key at the end for commercial API
+    return `${baseUrl}?${queryString}&apikey=${API_KEY}`;
+  }
+  
+  return `${baseUrl}?${queryString}`;
+}
 
 /**
  * Fetch cities matching search input using Open-Meteo Geocoding API
@@ -28,7 +60,8 @@ export async function fetchCities(searchInput) {
   });
 
   try {
-    const response = await fetch(`${url}?${params}`);
+    const apiUrl = constructApiUrl(url, params);
+    const response = await fetch(apiUrl);
     
     if (!response.ok) {
       throw new Error(`Geocoding API error: ${response.status}`);
@@ -117,8 +150,12 @@ export async function fetchWeatherData(latitude, longitude) {
   });
 
   try {
-    const fullUrl = `${url}?${params}`;
-    console.log('Making weather API request to:', fullUrl);
+    const fullUrl = constructApiUrl(url, params);
+    // Mask API key in logs for security
+    const logUrl = USE_COMMERCIAL_API
+      ? fullUrl.replace(/apikey=[^&]+/, 'apikey=***')
+      : fullUrl;
+    console.log('Making weather API request to:', logUrl);
     
     const response = await fetch(fullUrl);
     
