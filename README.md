@@ -3,52 +3,45 @@
 <br/>
 <br/>
 
-With the Addnode Weather Forecasting app, users can search locations by city name and observe current weather conditions and forecasts for the next 7 days.
-
+Med appen IP Julskinka Weather Forecasting kan användare söka efter orter och se aktuellt väder samt prognoser för de kommande sju dagarna.
 <br />
-The app is developed using React.js and Material-UI, and now uses Open-Meteo's APIs for weather data and city search.
+Appen är utvecklad med React.js och Material-UI och använder nu Open-Meteos API:er för väderdata och stadssökning.
+<br />
 
 
 ## ⚡ Quick Start
 
 1. **Install dependencies:**
+   <br />
+Detta steg skall vara klart på din dator
 
 ```bash
 npm install
 ```
 
-2. **Start the app:**
-
+2. **Starta appen:**
+   <br />
+Ta fram en terminal i ditt IDE och testa att det går att starta appen.
 ```bash
 npm start
 ```
 
-## 🔑 API Configuration (Optional)
+## Tips
+- Använd Architect mode och diskutera er fram till en lösning innan ni låter Kilo börja skriva kod
+- Commita ofta så att det är enkelt att gå tillbaka och börja om ifall det behövs
+- Om Kilo hänger, återställ till senaste Checkpoint och välj Resume Task
+- Använd screenshots i dina promptar för att göra dom mer beskrivande
 
-If you have an **Open-Meteo commercial API key**, you can use it for:
-- Higher rate limits
-- Priority access
-- Dedicated infrastructure
+## Uppgifter
 
-#### Setup Instructions
+1. **Nuvarande plats**<br />
+Gör det enkelt för användaren att välja staden de befinner sig i.
 
-1. **Create a `.env` file** in the project root:
-   ```bash
-   cp .env.example .env
-   ```
+2. **Senaste sökning**<br />
+Kom ihåg den senaste väderprognosen som laddades och ladda den när appen startas.
 
-2. **Add your API key** to `.env`:
-   ```bash
-   REACT_APP_OPEN_METEO_API_KEY=your_api_key_here
-   ```
+3. **Fel i tim-baserad prognos**<br />
+På den nedre delen av sidan visas prognos för temperatur för 6 timmar framåt. Den börjar dock 4 timmar fram istället för nästa timme.
 
-3. **Restart the development server:**
-   ```bash
-   npm start
-   ```
-
-#### Verification
-Check the browser console on app startup. You should see:
-- `🌤️ Open-Meteo API Mode: ✨ COMMERCIAL` (when using paid API)
-- `🌤️ Open-Meteo API Mode: 🆓 FREE` (when using free API)
-
+4. **Längre prognos**<br />
+Ändra så att användare kan bläddra fram fler prognoser för längre än 6 timmar fram.
