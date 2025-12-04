@@ -21,7 +21,7 @@ npm install
 
 2. **Starta appen:**
    <br />
-Ta fram en terminal i ditt IDE och testa att det går att starta appen.
+Ta fram en terminal i ditt IDE och testa att det går att starta appen. STÄNG sedan ner fliken i webbläsaren!
 ```bash
 npm start
 ```
