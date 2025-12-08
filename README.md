@@ -21,9 +21,10 @@ npm install
 
 2. **Starta appen:**
    <br />
-Ta fram en terminal i ditt IDE och testa att det går att starta appen. STÄNG sedan ner fliken i webbläsaren!
+Ta fram en terminal i ditt IDE och testa att det går att starta appen. STÄNG sedan programmet genom att trcka ctr-c i terminalen i Android Studio!
 ```bash
 npm start
+ctr-c #Viktigt!
 ```
 
 ## Tips
